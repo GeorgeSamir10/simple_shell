@@ -26,10 +26,21 @@ int main(int argc, char *argv[])
 	}
 
 	printf("type something");
+	while (1)
+	{
+		write(STDOUT_FILENO, "shellprompt$", 13);
+		input = getline(&in, &len, stdin);
 
-	input = getline(&in, &len, stdin);
-	printf("%zu characters were read. \n", input);
-	printf("you typed: %s \n", in);
+		if (input == -1)
+		{
+			perror("Exiting Shell");
+			exit(1);
+		}
 
+		printf("%s", in);
+	}
+
+	free(in);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
