@@ -3,21 +3,20 @@
 
 /**
  * main - main entry point for our progra
- * @argc: Argument count to the main
- * @argv: pointer to array of argument values
+ * @ac: Argument count to the main
+ * @av: pointer to array of argument values
  *
  * Return: return 0 success, otherwise return 1
  *
  */
 
-int main(int argc, char *argv[])
+int main(int ac, char **av)
 {
-	(void)argc, (void)argv;
-
 	char *in;
 	size_t len = 0;
 	ssize_t input;
 
+	(void)ac, (void)av;
 	in = (char *)malloc(len * sizeof(char));
 	if (in == NULL)
 	{
