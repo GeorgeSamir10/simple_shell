@@ -59,7 +59,7 @@ int main(int ac, char **av)
 
 		if (pid == 0)
 		{
-			if(execve(Temp[0], Temp, NULL) == -1)
+			if (execve(Temp[0], Temp, NULL) == -1)
 			{
 				perror("Command Not Found");
 				exit(97);
