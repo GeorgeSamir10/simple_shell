@@ -4,5 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <string.h>
 
+
+extern char **environ;
+
+char *_getenv(const char *name);
 #endif /* MAIN_H */
