@@ -10,37 +10,69 @@
  *
  */
 
-int main(int argc, char *argv[])
+int main()
 {
-	(void)argc, (void)argv;
+	char input[MAX_LINE_LENGTH];
+	// char* args[MAX_ARGS];.
+	int status;
 
-	char *in;
-	size_t len = 0;
-	ssize_t input;
-
-	in = (char *)malloc(len * sizeof(char));
-	if (in == NULL)
+    if (i >= MAX_ARGS) 
 	{
-		perror("unallcoated buffer");
-		exit(1);
-	}
+		fprintf(stderr, "Too many arguments\n");
+		continue;
+    }
 
-	printf("type something");
 	while (1)
 	{
-		write(STDOUT_FILENO, "shellprompt$", 13);
-		input = getline(&in, &len, stdin);
+		fgets(input, MAX_LINE_LENGTH, stdin);
 
-		if (input == -1)
+		/* tokenize the input*/
+	    int i = 0;
+
+		args[i] = strtok(input, "\n");
+		while (args[i] != NULL)
 		{
-			perror("Exiting Shell");
-			exit(1);
+			i++;
+			args[i] = strtok(NULL, "\n");
+
+		}
+		args[i] = NULL;
+
+		/*builtin commands*/
+		if (strcmp(args[0], "cd") == 0)
+		{
+			chdir(args[1]);
+			continue;
+
+		}
+		else if (strcmp(args[0], "exit") == 0)
+		{
+			exit(0);
+		
 		}
 
-		printf("%s", in);
-	}
+		/* child process*/
+		pid_t pid = fork();
+		if (pid < 0)
+		{
+			perror("fork failed");
+			exit(1);
 
-	free(in);
-	exit(EXIT_SUCCESS);
-	return (0);
-}
+		}
+
+		else if (pid == 0)
+		{
+			/*child*/gcc -Wall -Wextra -pedantic *.c -o shell && ./shell
+			execvp(args[0], args);
+			perror("ecexution fail");
+		}
+
+		else 
+		{
+			/* parent*/
+			waitpid(pid, &status, 0);
+		}
+	}
+	return 0;
+
+	}
