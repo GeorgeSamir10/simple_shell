@@ -19,12 +19,12 @@ void _executing(const char *_mycmd)
 	{
 		char *av[128];
 		int ac = 0;
-		char *_toKen = strtok((char *)_mycmd, " ");
+		char *_toKen = strtok((char *)_mycmd, " \t\n");
 
 		while (_toKen != NULL)
 		{
 			av[ac] = _toKen;
-			_toKen = strtok(NULL, " ");
+			_toKen = strtok(NULL, " \t\n");
 			ac++;
 		}
 		av[ac] = NULL;
