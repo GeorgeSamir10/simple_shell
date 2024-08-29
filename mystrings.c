@@ -6,7 +6,7 @@
 * Return: Nothing
 */
 
-void _myprint(const char *text)
+void _myprint(char *text)
 {
 	write(STDOUT_FILENO, text, _strlen(text));
 }
@@ -16,13 +16,13 @@ void _myprint(const char *text)
 * @s: pointer to string
 * Return: length of string
 */
-int _Strlen(char *s)
+int _strlen(char *s)
 {
 	int j = 0;
 
-	while (*(s + i) != '\0')
+	while (*(s + j) != '\0')
 	{
-		i++;
+		j++;
 	}
 	return (j);
 }

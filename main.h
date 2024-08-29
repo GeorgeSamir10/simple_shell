@@ -16,7 +16,7 @@
 extern char **environ;
 
 void _prompt(void);
-void _myprint(const char *text);
+void _myprint(char *text);
 void _input(char *_mycmd, size_t inSize);
 void _executing(const char *_mycmd);
 char *_getenv(const char *name);
