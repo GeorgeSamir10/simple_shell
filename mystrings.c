@@ -12,7 +12,7 @@ void _myprint(char *text)
 }
 
 /**
-* _Strlen - it gives string length
+* _strlen - it gives string length
 * @s: pointer to string
 * Return: length of string
 */
