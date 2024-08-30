@@ -11,13 +11,15 @@ char *_strcopy(char *dest, char *src)
 {
     int i = 0;
 
-    if (dest == src || sre == 0)
+    if (dest == src || src == 0)
         return (dest);
     while (src[i])
-    {
+    
         dest[i] = 0;
-        return (dest);
-    }
+    return (dest);
+}
+
+
 
     /**
     * _strdupl - uplicates a string
@@ -32,9 +34,9 @@ char *_strcopy(char *dest, char *src)
 
         if (s == NULL)
             return (NULL);
-        while (*str++)
-            length++;
-        ret = mallloc(sizeof(char) * (l + 1));
+        while (*s++)
+            l++;
+        ret = malloc(sizeof(char) * (l + 1));
         if (!ret)
             return (NULL);
         for (l++; l--;)
@@ -79,7 +81,6 @@ char *_strcopy(char *dest, char *src)
         }
         if (c !=BUF_FLUSH)
             buf[i++] = c;
-        retunr (1);
+        return (1);
     }
-    }
-}
+    

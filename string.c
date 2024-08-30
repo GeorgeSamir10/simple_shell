@@ -3,7 +3,6 @@
 /**
 _strlength - returns length of string
 @s: the string to check
-
 Return: int length of s
 */
 
@@ -60,7 +59,6 @@ Return: 0 if s1 == s2, -1 s1 < s2, 1 if s2 > s1
 _strcon - concatenates two strings
 @dest: the destination buffer
 @src: the source buffer
-
 Return: pointer to distenation buffer
 */
 
