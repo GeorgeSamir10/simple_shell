@@ -38,7 +38,7 @@ int _writehistory(info_t *_inf)
 	if (!Fname)
 		return (-1);
 	filed = open(Fname, O_CREAT | O_TRUNC | O_RDWR, 0644);
-	free(FNAME);
+	free(Fname);
 	if (filed == -1)
 		return (-1);
 	for (N = _inf->history; N; N = N->next)
@@ -94,7 +94,7 @@ int _readhistory(info_t *_inf)
 	free(buff);
 	_inf->histcount = Lcount;
 	while (_inf->histcount-- >= HIST_MAX)
-		delete_node_at_index(&(_inf->history), 0);
+		del_index(&(_inf->history), 0);
 	_renumberhistory(_inf);
 	return (_inf->histcount);
 }
@@ -114,7 +114,7 @@ int _buildhistorylist(info_t *_inf, char *buff, int Lcount)
 
 	if (_inf->history)
 		N = _inf->history;
-	add_node_end(&N, buff, Lcount);
+	node_end(&N, buff, Lcount);
 	if (!_inf->history)
 		_inf->history = N;
 	return (0);
@@ -126,7 +126,7 @@ int _buildhistorylist(info_t *_inf, char *buff, int Lcount)
 * Return: new histcount
 */
 
-int _renumberhistory(info *_inf)
+int _renumberhistory(info_t *_inf)
 {
 	list_t *N = _inf->history;
 	int j = 0;
