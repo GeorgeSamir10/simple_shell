@@ -8,7 +8,7 @@
 
 int _ENV(info_t *_inf)
 {
-	_print_list_str(_inf->env);
+	print_str(_inf->env);
 	return (0);
 }
 
@@ -22,13 +22,13 @@ int _ENV(info_t *_inf)
 char *_getenv(info_t *_inf, const char *envName)
 {
 	list_t *N = _inf->env;
-	char *_Path;
+	char *P;
 
 	while (N)
 	{
-		_Path = starts_with(N->str, name)
-		if (_Path && *_Path)
-			return (_Path);
+		P = starts_with(N->str, envName);
+		if (P && *P)
+			return (P);
 		N = N->next;
 	}
 	return (NULL);
@@ -44,7 +44,7 @@ int custsetenv(info_t *_inf)
 {
 	if (_inf->argc != 3)
 	{
-		_puts("Number of arguments is wrong");
+		_eputs("Number of arguments is wrong");
 		return (1);
 	}
 	if (_setenv(_inf, _inf->argv[1], _inf->argv[2]))
@@ -65,12 +65,12 @@ int custunsetenv(info_t *_inf)
 
 	if (_inf->argc == 1)
 	{
-		_puts("Too Few Arguments");
+		_eputs("Too Few Arguments");
 		return (1);
 	}
 	for (j = 1; j <= _inf->argc; j++)
 	{
-		_unsetenv(_inf, _inf->argv[i]);
+		_unsetenv(_inf, _inf->argv[j]);
 	}
 	return (0);
 }
@@ -88,7 +88,7 @@ int _pop_env_list(info_t *_inf)
 
 	for (j = 0; environ[j]; j++)
 	{
-		add_node_end(&N, environ[j], 0);
+		node_end(&N, environ[j], 0);
 	}
 	_inf->env = N;
 	return (0);

@@ -72,7 +72,7 @@ void _frinf(info_t *_inf, int fields)
 		if (_inf->alias)
 			free_list(&(_inf->alias));
 		ffree(_inf->environ);
-			_inf->eviron = NULL;
+			_inf->environ = NULL;
 		bfree((void **)_inf->cmd_buf);
 		if (_inf->readfd > 2)
 			close(_inf->readfd);
