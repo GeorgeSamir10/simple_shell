@@ -1,10 +1,9 @@
 #include "main.h"
-/*
-pfree - frees a pointer
-@ptr: address of the pointer to free
-
-Return: 1 if freed, 0 otherwise
-*/
+/**
+ * pfree - frees a pointer
+ * @ptr: address of the pointer to free
+ * Return: 1 if freed, 0 otherwise
+ */
 
 int pfree(void **ptr)
 {

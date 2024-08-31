@@ -1,10 +1,9 @@
 #include "main.h"
 
-/*
-_eputs - prints an input string
-@s: printed string
-
-Return: nothing
+/**
+* _eputs - prints an input string
+* @s: printed string
+* Return: nothing
 */
 
 void _eputs(char *s)
@@ -19,11 +18,10 @@ void _eputs(char *s)
     }
 }
 
-/*
-_eputchar - writes character to c stderr
-@c: the char to print
-
-Return: 1, -1on error
+/**
+* _eputchar - writes character to c stderr
+* @c: the char to print
+* Return: 1, -1on error
 */
 
 int _eputchar(char c)
@@ -42,13 +40,12 @@ int _eputchar(char c)
 
 }
 
-/*
-_putfd - writes char c to given fd
-
-@c: char to print
-@fd: filedescripter to write to
-Return: 1, -1 on error
- */
+/**
+* _putfd - writes char c to given fd
+* @c: char to print
+* @fd: filedescripter to write to
+* Return: 1, -1 on error
+*/
 
  int _putfd(char c, int fd)
  {
@@ -66,13 +63,11 @@ Return: 1, -1 on error
     return (1);
  }
 
- /*
- _putsfd - prints input string
-
- @s: string to be printed
- @fd: filedescriptor
-
- Return: num of chars
+ /**
+ * _putsfd - prints input string
+ * @s: string to be printed
+ * @fd: filedescriptor
+ * Return: num of chars
  */
 
  int _putsfd(char *str, int fd)

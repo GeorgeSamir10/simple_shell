@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
-_strncopy - copies a string
-@dest: string destination to be copied to
-@sec: source string address
-@n: amount of chars to be copied
-Return: concatenated string
- */
+* _strncopy - copies a string
+* @dest: string destination to be copied to
+* @sec: source string address
+* @n: amount of chars to be copied
+* Return: concatenated string
+*/
 
  char *_strncopy(char *dest, char *src, int n)
  {
@@ -33,12 +33,12 @@ Return: concatenated string
  }
 
  /**
- _strncon - concatenates 2 strings
- @s1: first string
- @s2: second string
- @n: amount of byets to be used
- Return: concatenated string
-  */
+ * _strncon - concatenates 2 strings
+ * @s1: first string
+ * @s2: second string
+ * @n: amount of byets to be used
+ * Return: concatenated string
+ */
 
   char *_strncon(char *s1, char *s2, int n)
   {
@@ -60,11 +60,11 @@ Return: concatenated string
     return (s);
   }
 
-  /*
-  _strchr - returns location of a character
-  @s: string tto be parsed
-  @c: char to look for
-  Return: pointer to memory of char
+  /**
+  * _strchr - returns location of a character
+  * @s: string tto be parsed
+  * @c: char to look for
+  * Return: pointer to memory of char
   */
 
   char *_strchr(char *s, char c)

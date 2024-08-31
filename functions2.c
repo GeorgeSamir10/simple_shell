@@ -1,11 +1,10 @@
 #include "main.h"
 
-/*
-errstoi - consverts string to integer
-
-@s: the string to be converted
-Return: 0 if no numbers in string, converted numbers
-        -1 on error
+/**
+* errstoi - consverts string to integer
+* @s: the string to be converted
+* Return: 0 if no numbers in string, converted numbers
+*       -1 on error
 */
 
 int errstoi(char *s)
@@ -31,13 +30,13 @@ int errstoi(char *s)
     return (result);
 }
 
-/*
-print_error - prints erroe messages
-@info: the parameter and return info struct
-@estr: string conatininng specific error
-Return: 0 iff no numbers in string, convert number
-        or -1 on error
- */
+/**
+* print_error - prints erroe messages
+* @info: the parameter and return info struct
+* @estr: string conatininng specific error
+* Return: 0 iff no numbers in string, convert number
+*       or -1 on error
+*/
 
  void print_error(ino_t *info, char *estr)
  {
@@ -50,12 +49,11 @@ Return: 0 iff no numbers in string, convert number
     _eputs(estr);
  }
 
- /*
- print_d - func. prints a decimal (int) num (base 10)
- @in: input
- @f: file to write to
-
- Return: num of chars printed
+ /**
+ * print_d - func. prints a decimal (int) num (base 10)
+ * @in: input
+ * @f: file to write to
+ * Return: num of chars printed
  */
 
  int print_d(int in, int f)
@@ -93,12 +91,11 @@ Return: 0 iff no numbers in string, convert number
  }
 
  /**
- convert_num - converter func.
- @num: number
- @base: argument flags
-
- Return: str
-  */
+ * convert_num - converter func.
+ * @num: number
+ *@base: argument flags
+ * Return: str
+*/
 
   char *convert_num(long int num, int base, int flags)
   {
@@ -129,12 +126,11 @@ Return: 0 iff no numbers in string, convert number
     return (ptr);
   }
 
-  /*
-  rm_comments - function replaces 1st instance of '#'
-        with '\0'
-    @buf: address of string to modify
-
-    Return: Always 0;
+/**
+* rm_comments - function replaces 1st instance of '#'
+*     with '\0'
+* @buf: address of string to modify
+* Return: Always 0;
   */
 
   void rm_comments(char *buf)
