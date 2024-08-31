@@ -7,7 +7,7 @@
 */
 void(*_checkTHEbuild(char **arv))(char **arv)
 {
-	int x, y;
+	int x, l;
 	mybuild T[] = {
 		{"exit", _EXITS},
 		{"env", env},
@@ -18,15 +18,15 @@ void(*_checkTHEbuild(char **arv))(char **arv)
 
 	for (x = 0; T[x].name; x++)
 	{
-		y = 0;
-		if (T[x].name[y] == arv[0][y])
+		l = 0;
+		if (T[x].name[l] == arv[0][l])
 		{
-			for (y = 0; arv[0][y]; y++)
+			for (l = 0; arv[0][l]; y++)
 			{
-				if (T[x].name[y] != arv[0][y])
+				if (T[x].name[l] != arv[0][l])
 					break;
 			}
-			if (!arv[0][y])
+			if (!arv[0][l])
 				return (T[x].func);
 		}
 	}
