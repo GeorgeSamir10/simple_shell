@@ -38,12 +38,12 @@ char *_getenv(const char *N)
 
 /**
  * nodeend - adds a new node at the end of a list_t list
- * @head: pointer to pointer to our linked list
+ * @h: pointer to pointer to our linked list
  * @str: pointer to string in previous first node
  * Return: address of the new element/node
  */
 
-list_path *nodeend(list_path **head, char *str)
+list_path *nodeend(list_path **h, char *str)
 {
 
 	list_path *_temp;
@@ -59,13 +59,13 @@ list_path *nodeend(list_path **head, char *str)
 	_N->dir = str;
 
 	_N->p = '\0';
-	if (!*head)
+	if (!*h)
 	{
-		*head = _N;
+		*h = _N;
 	}
 	else
 	{
-		_temp = *head;
+		_temp = *h;
 
 		while (_temp->p)
 		{
@@ -76,7 +76,7 @@ list_path *nodeend(list_path **head, char *str)
 		_temp->p = _N;
 	}
 
-	return (*head);
+	return (*h);
 }
 
 
