@@ -4,11 +4,11 @@
 /**
  * _splitstr - splits a string and makes it an array of pointers to words
  * @str: the string to be split
- * @delimiter: the delimiter
+ * @delim: the delimiter
  * Return: array of pointers to words
  */
 
-char **_splitstr(char *str, const char *delimiter)
+char **_splitstr(char *str, const char *delim)
 {
 	int i, WN;
 	char **array;
@@ -29,7 +29,7 @@ char **_splitstr(char *str, const char *delimiter)
 	}
 	copy[i] = '\0';
 
-	token = strtok(copy, delimiter);
+	token = strtok(copy, delim);
 	array = malloc((sizeof(char *) * 2));
 	array[0] = stRdup(token);
 
@@ -37,7 +37,7 @@ char **_splitstr(char *str, const char *delimiter)
 	WN = 3;
 	while (token)
 	{
-		token = strtok(NULL, delimiter);
+		token = strtok(NULL, delim);
 		array = _realloc(array, (sizeof(char *) * (WN - 1)), (sizeof(char *) * WN));
 		array[i] = stRdup(token);
 		i++;
@@ -75,33 +75,33 @@ void exec(char **argv)
 
 /**
  * _realloc - Reallocates memory block
- * @ptr: previous pointer
+ * @pointer: previous pointer
  * @old_size: old size of previous pointer
  * @new_size: new size for our pointer
  * Return: New resized Pointer
  */
 
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size)
 {
 	char *new;
 	char *old;
 
 	unsigned int i;
 
-	if (ptr == NULL)
+	if (pointer == NULL)
 		return (malloc(new_size));
 
 	if (new_size == old_size)
-		return (ptr);
+		return (pointer);
 
-	if (new_size == 0 && ptr != NULL)
+	if (new_size == 0 && pointer != NULL)
 	{
-		free(ptr);
+		free(pointer);
 		return (NULL);
 	}
 
 	new = malloc(new_size);
-	old = ptr;
+	old = pointer;
 	if (new == NULL)
 		return (NULL);
 
@@ -109,7 +109,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		for (i = 0; i < old_size; i++)
 			new[i] = old[i];
-		free(ptr);
+		free(pointer);
 		for (i = old_size; i < new_size; i++)
 			new[i] = '\0';
 	}
@@ -117,7 +117,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		for (i = 0; i < new_size; i++)
 			new[i] = old[i];
-		free(ptr);
+		free(pointer);
 	}
 	return (new);
 }
