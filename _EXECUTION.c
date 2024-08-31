@@ -55,7 +55,7 @@ char **_splitstr(char *str, const char *delim)
 void exec(char **argv)
 {
 
-	int D, status;
+	int D, stat;
 
 	if (!argv || !argv[0])
 		return;
@@ -70,7 +70,7 @@ void exec(char **argv)
 			perror(argv[0]);
 		exit(EXIT_FAILURE);
 	}
-	wait(&status);
+	wait(&stat);
 }
 
 /**
