@@ -36,17 +36,17 @@ char *stRdup(char *str)
  * _conc - concats 3 strings in a newly allocated memory
  * @N: first string
  * @sep: second string
- * @value: Third string
+ * @val: Third string
  * Return: pointer to the new string
  */
-char *_conc(char *N, char *sep, char *value)
+char *_conc(char *N, char *sep, char *val)
 {
 	char *_res;
 	int _line1, _line2, _line3, i, z;
 
 	_line1 = strlength(N);
 	_line2 = strlength(sep);
-	_line3 = strlength(value);
+	_line3 = strlength(val);
 
 	_res = malloc(_line1 + _line2 + _line3 + 1);
 	if (!_res)
@@ -60,8 +60,8 @@ char *_conc(char *N, char *sep, char *value)
 		_res[z + i] = sep[i];
 	z = z + i;
 
-	for (i = 0; value[i]; i++)
-		_res[z + i] = value[i];
+	for (i = 0; val[i]; i++)
+		_res[z + i] = val[i];
 	z = z + i;
 
 	_res[z] = '\0';
