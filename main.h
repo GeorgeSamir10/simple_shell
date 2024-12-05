@@ -3,68 +3,95 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-#include <sys/wait.h>
+#include <unistd.h>
 #include <sys/types.h>
-#include <errno.h>
-#include <stddef.h>
+#include <sys/wait.h>
 #include <sys/stat.h>
-#include <signal.h>
-
-int _putchar(char c);
-void _puts(char *str);
-int strlength(char *s);
-char *stRdup(char *str);
-char *_conc(char *N, char *sep, char *val);
-
-char **_splitstr(char *str, const char *delim);
-void exec(char **argv);
-void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size);
-
+#include <sys/resource.h>
+#include <sys/time.h>
+#include <fcntl.h>
 
 extern char **environ;
-
 /**
- * struct list_path - Linked list containing PATH directories
- * @dir: directory in path
- * @p: pointer to next node
+ * struct Path_List - a struct containing directories
+ * in PATH variable.
+ * @dir: first member and has string to a single directory
+ * in PATH.
+ * @next: pointer to the next struct pathdir in the linked
+ * list.
  */
-typedef struct list_path
+typedef struct Path_List
 {
 	char *dir;
-	struct list_path *p;
-} list_path_t;
+	struct Path_List *next;
+} Path_List_t;
 
 
+/* string functions */
+int _putchar(char c);
+int _putstr(char *str);
+char **_strtolist(char *str, char delimiter);
+int _strlen(char *str);
+char *_strcpy(char *_destin, char *_src);
+int _strcmp(char *str1, char *str2);
+int _strncmp(char *s1, char *s2, size_t n);
+char *_strcat(char *s1, char *s2);
+void _putinterr(int linenum);
+int _atoi(char *str);
+char *_itoa(int number);
+char *_strdup(char *str);
+int _hasalpha(char *s);
 
-void(*_checkTHEbuild(char **arv))(char **arv);
-int STRTOI(char *str);
-void _EXITS(char **arv);
-void env(char **arv);
-void settenv(char **arv);
-void unsettenv(char **arv);
+/* environment variable functions */
+char *_getenv(char *name);
+int _setenv(char *name, char *value, int overwrite);
+int _unsetenv(char *name);
 
+/* built in commands */
+void print_env(char **args,  int *exitstatus,  int linenum, char *prog);
+void exit_function(char **args,  int *exitstatus,  int linenum, char *prog);
+int built_in(char **args, int *exitstatus, int linenum, char *prog);
+void cd(char **args,  int *exitstatus,  int linenum, char *prog);
+void pwd(char **args,  int *exitstatus,  int linenum, char *prog);
+void set_env(char **args, int *exitstatus,  int linenum, char *prog);
+void unset_env(char **args, int *exitstatus,  int linenum, char *prog);
 
+/* built in helpers*/
+void change_dir(char *dir);
+void set_pwd(char *dir);
+void set_oldpwd(char *dir);
+void set_oldpwd_overwrite(char *dir);
+int is_directory(const char *path);
+void switch_current_dir(void);
+void go_to_home(void);
+void change_to_new_dir(int *, char *dir, int linenum, char *prog, char **args);
+void print_path(char *tmp);
 
-/**
- * struct mybuild - pointer to function with corresponding buildin command
- * @name: buildin command
- * @func: execute the buildin command
- */
-typedef struct mybuild
-{
-	char *name;
-	void (*func)(char **);
-} mybuild_t;
+/* memory functions */
+void _freedouble(char **str);
+void _freepathlist(Path_List_t *head);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
-char *_getenv(const char *N);
-list_path_t *nodeend(list_path_t **head, char *str);
-list_path_t *_linkP(char *path);
-char *_FPATH(char *filename, list_path_t *head);
+/* main.c main functions */
+char **initargs(int *linenum, int *exitstatus, int fd);
+void command_not_found(char *command_name, int linenum, char *prog);
+void permissiondenied(char *command_name, int linenum, char *prog);
+ssize_t _getline(char **line_ptr, size_t *n, int fd);
+void execute_command(char **args, int *exitstatus);
+int check_absolute_path(char **args, int *exitstatus, char *prog, int linenum);
+int find_in_PATH(char **args, int *exitstatus, char *prog, int linenum);
+Path_List_t *create_path_list(void);
+char **initenv(void);
+void handledollar(char **args, int *exitstatus);
+void handlecomments(char **args, int *exitstatus);
+int _readfile(char **argv);
 
-void _farv(char **arv);
-void _FLST(list_path_t *head);
-
+/* error writing commands*/
+void illegal_option(char *x, int linenum, char *prog);
+void not_dir(char *x, int linenum, char *prog);
+void illegal_number(char *x, int linenum, char *prog);
+void file_not_found(char **argv);
+void file_not_readable(char **argv);
 
 #endif
