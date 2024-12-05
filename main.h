@@ -56,7 +56,7 @@ typedef struct mybuild
 {
 	char *name;
 	void (*func)(char **);
-} mybuild;
+} mybuild_t;
 
 char *_getenv(const char *name);
 list_path_t *nodeend(list_path_t **head, char *str);

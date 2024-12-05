@@ -8,7 +8,7 @@
 void(*_checkTHEbuild(char **arv))(char **arv)
 {
 	int x, y;
-	mybuild T[] = {
+	mybuild_t T[] = {
 		{"exit", _EXITS},
 		{"env", env},
 		{"setenv", settenv},
