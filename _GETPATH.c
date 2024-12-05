@@ -43,13 +43,13 @@ char *_getenv(const char *N)
  * Return: address of the new element/node
  */
 
-list_path *nodeend(list_path **head, char *str)
+list_path_t *nodeend(list_path_t **head, char *str)
 {
 
-	list_path *_temp;
-	list_path *_N;
+	list_path_t *_temp;
+	list_path_t *_N;
 
-	_N = malloc(sizeof(list_path));
+	_N = malloc(sizeof(list_path_t));
 
 	if (!str || !_N)
 	{
@@ -85,9 +85,9 @@ list_path *nodeend(list_path **head, char *str)
  * @path: string of path value
  * Return: pointer to the created linked list
  */
-list_path *_linkP(char *path)
+list_path_t *_linkP(char *path)
 {
-	list_path *head = '\0';
+	list_path_t *head = '\0';
 	char *token;
 	char *cpath = stRdup(path);
 
@@ -107,12 +107,12 @@ list_path *_linkP(char *path)
  * @head: head of linked list of path directories
  * Return: pathname of filename or NULL if no match
  */
-char *_FPATH(char *filename, list_path *head)
+char *_FPATH(char *filename, list_path_t *head)
 {
 	struct stat st;
 	char *string;
 
-	list_path *_temp = head;
+	list_path_t *_temp = head;
 
 	while (_temp)
 	{
@@ -133,9 +133,9 @@ char *_FPATH(char *filename, list_path *head)
  * _FLST - frees a list_t
  *@head: pointer to our linked list
  */
-void _FLST(list_path *head)
+void _FLST(list_path_t *head)
 {
-	list_path *_store;
+	list_path_t *_store;
 
 	while (head)
 	{

@@ -53,7 +53,7 @@ int main(void)
 	ssize_t length = 0;
 	char *buf = NULL, *_val, *PNAME, **arv;
 	size_t SIZE = 0;
-	list_path *HD = '\0';
+	list_path_t *HD = '\0';
 	void (*f)(char **);
 
 	signal(SIGINT, handler);

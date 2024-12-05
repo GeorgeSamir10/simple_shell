@@ -23,7 +23,7 @@ typedef struct list_path
 {
 	char *dir;
 	struct list_path *p;
-} list_path;
+} list_path_t;
 
 
 int _putchar(char c);
@@ -59,12 +59,12 @@ typedef struct mybuild
 } mybuild;
 
 char *_getenv(const char *name);
-list_path *nodeend(list_path **head, char *str);
-list_path *_linkP(char *path);
-char *_FPATH(char *filename, list_path *head);
+list_path_t *nodeend(list_path_t **head, char *str);
+list_path_t *_linkP(char *path);
+char *_FPATH(char *filename, list_path_t *head);
 
 void _farv(char **arv);
-void _FLST(list_path *head);
+void _FLST(list_path_t *head);
 
 
 #endif
