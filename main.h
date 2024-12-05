@@ -30,18 +30,18 @@ int _putchar(char c);
 void _puts(char *str);
 int strlength(char *s);
 char *stRdup(char *str);
-char *_conc(char *N, char *sep, char *value);
+char *_conc(char *N, char *sep, char *val);
 
-char **_splitstr(char *str, const char *delimiter);
+char **_splitstr(char *str, const char *delim);
 void exec(char **argv);
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size);
 
 
 
 void(*_checkTHEbuild(char **arv))(char **arv);
-int STRTOI(char *s);
+int STRTOI(char *str);
 void _EXITS(char **arv);
-void env(char **arv);
+void env(char **arv __attribute__ ((unused)));
 void settenv(char **arv);
 void unsettenv(char **arv);
 
@@ -58,7 +58,7 @@ typedef struct mybuild
 	void (*func)(char **);
 } mybuild_t;
 
-char *_getenv(const char *name);
+char *_getenv(const char *N);
 list_path_t *nodeend(list_path_t **head, char *str);
 list_path_t *_linkP(char *path);
 char *_FPATH(char *filename, list_path_t *head);
