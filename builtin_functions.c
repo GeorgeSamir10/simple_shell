@@ -57,7 +57,7 @@ void exit_function(char **args, int *exitstatus,  int linenum, char *prog)
 		}
 		else
 		{
-			status = _atoi(args[1]);
+			status = _strtoint(args[1]);
 			_freedouble(environ);
 			_freedouble(args);
 			exit(status);

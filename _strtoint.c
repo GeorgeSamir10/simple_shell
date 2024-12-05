@@ -1,10 +1,10 @@
 /**
- * _atoi - convert a string to an integer.
+ * _strtoint - convert a string to an integer.
  * @str: pointer to string to be converted.
  *
  * Return: converted integer value
  */
-int _atoi(char *str)
+int _strtoint(char *str)
 {
 	unsigned int result;
 	int idx, sign;
