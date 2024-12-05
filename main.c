@@ -13,13 +13,13 @@ void isaty(void)
 
 /**
 * ENDF - handles the End of File
-* @length: return value of getline function
+* @l: return value of getline function
 * @buf: buffer
  */
-void ENDF(int length, char *buf)
+void ENDF(int l, char *buf)
 {
 	(void)buf;
-	if (length == -1)
+	if (l == -1)
 	{
 		if (isatty(STDIN_FILENO))
 		{
