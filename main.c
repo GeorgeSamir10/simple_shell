@@ -7,7 +7,7 @@
 void isaty(void)
 {
 	if (isatty(STDIN_FILENO))
-		_puts("\nSHELL_PROMPT$ ");
+		_puts("\nMyPrompt$ ");
 }
 
 
@@ -37,9 +37,7 @@ void ENDF(int l, char *buf)
 void handler(int number)
 {
 	if (number == SIGINT)
-	{
 		_puts("\nMyPrompt$ ");
-	}
 }
 
 

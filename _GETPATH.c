@@ -51,7 +51,7 @@ list_path_t *nodeend(list_path_t **head, char *str)
 
 	_N = malloc(sizeof(list_path_t));
 
-	if (!str || !_N)
+	if (!_N || !str)
 	{
 		return (NULL);
 	}

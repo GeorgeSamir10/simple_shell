@@ -12,6 +12,17 @@
 #include <sys/stat.h>
 #include <signal.h>
 
+int _putchar(char c);
+void _puts(char *str);
+int strlength(char *s);
+char *stRdup(char *str);
+char *_conc(char *N, char *sep, char *val);
+
+char **_splitstr(char *str, const char *delim);
+void exec(char **argv);
+void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size);
+
+
 extern char **environ;
 
 /**
@@ -26,22 +37,11 @@ typedef struct list_path
 } list_path_t;
 
 
-int _putchar(char c);
-void _puts(char *str);
-int strlength(char *s);
-char *stRdup(char *str);
-char *_conc(char *N, char *sep, char *val);
-
-char **_splitstr(char *str, const char *delim);
-void exec(char **argv);
-void *_realloc(void *pointer, unsigned int old_size, unsigned int new_size);
-
-
 
 void(*_checkTHEbuild(char **arv))(char **arv);
 int STRTOI(char *str);
 void _EXITS(char **arv);
-void env(char **arv __attribute__ ((unused)));
+void env(char **arv);
 void settenv(char **arv);
 void unsettenv(char **arv);
 
